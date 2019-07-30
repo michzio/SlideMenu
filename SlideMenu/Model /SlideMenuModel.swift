@@ -34,6 +34,8 @@ open class SlideMenuModel : SlideMenuDataSource {
         return UIImage(named:"chevron-right", in: Bundle(for: self), compatibleWith:nil)!
     }
     
+    public init() { }
+    
     open var menuItems: [SlideMenuItem]? {
         return [
             SlideMenuItem(title: "Example", id: "example", icon: SlideMenuModel.chevronImage)
