@@ -42,7 +42,7 @@ open class SlideMenuBaseViewController: UIViewController, SlideMenuDelegate {
         sender.isEnabled = false
         self.view.endEditing(true)
         
-        let storyboard = UIStoryboard(name: "SlideMenu", bundle: nil)
+        let storyboard = UIStoryboard(name: "SlideMenu", bundle: Bundle(for: SlideMenuBaseViewController.self))
         let slideMenuVC = storyboard.instantiateViewController(withIdentifier: SlideMenuViewController.identifier) as! SlideMenuViewController
         slideMenuVC.delegate = self
         slideMenuVC.openSlideMenu(over: self) { sender.isEnabled = true }
@@ -178,7 +178,7 @@ extension SlideMenuBaseViewController {
             cvc.setContentView(viewController: vc, transition: .backward, completion: completion)
         } else {
             
-            let storyboard = UIStoryboard(name: "SlideMenu", bundle: nil)
+            let storyboard = UIStoryboard(name: "SlideMenu", bundle: Bundle(for: SlideMenuBaseViewController.self))
             let cvc = storyboard.instantiateViewController(withIdentifier: ContainerViewController.identifier) as! ContainerViewController
             
             self.show(cvc, sender: cvc)
