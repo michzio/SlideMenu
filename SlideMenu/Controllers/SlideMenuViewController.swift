@@ -344,7 +344,7 @@ extension SlideMenuViewController : UITableViewDataSource, UITableViewDelegate {
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.register(UINib(nibName: SlideMenuOptionTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: SlideMenuOptionTableViewCell.identifier)
+        tableView.register(UINib(nibName: SlideMenuOptionTableViewCell.identifier, bundle: Bundle(for: SlideMenuViewController.self)), forCellReuseIdentifier: SlideMenuOptionTableViewCell.identifier)
         
         
     }
