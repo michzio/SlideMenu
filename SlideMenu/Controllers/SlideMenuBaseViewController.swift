@@ -11,8 +11,8 @@ import UIKit
 open class SlideMenuBaseViewController: UIViewController, SlideMenuDelegate {
     
     public var slideMenuViewController: SlideMenuViewController? = nil
-    public weak var menuDelegate : SlideMenuDelegate? = nil
-    public weak var menuDataSource : SlideMenuDataSource? = nil
+    public var menuDelegate : SlideMenuDelegate? = nil
+    public var menuDataSource : SlideMenuDataSource? = nil
     
     // MARK: - SLIDE MENU BAR BUTTON
     open var barsIcon : UIImage {
