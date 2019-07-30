@@ -8,10 +8,12 @@
 
 import UIKit
 
-open class SlideMenuBaseViewController: UIViewController, SlideMenuDelegate {
+open class SlideMenuBaseViewController: UIViewController, SlideMenuDelegate, SlideMenuDataSource {
     
     var slideMenuViewController: SlideMenuViewController? = nil
-
+    weak var menuDelegate : SlideMenuDelegate? = nil
+    weak var menuDataSource : SlideMenuDataSource? = nil
+    
     // MARK: - SLIDE MENU BAR BUTTON
     open var barsIcon : UIImage {
         //fatalError("Implement bars icon for slide menu")
@@ -44,10 +46,11 @@ open class SlideMenuBaseViewController: UIViewController, SlideMenuDelegate {
         
         let storyboard = UIStoryboard(name: "SlideMenu", bundle: Bundle(for: SlideMenuBaseViewController.self))
         let slideMenuVC = storyboard.instantiateViewController(withIdentifier: SlideMenuViewController.identifier) as! SlideMenuViewController
-        slideMenuVC.delegate = self
+        slideMenuVC.delegate = menuDelegate ?? self
+        slideMenuVC.dataSource = menuDataSource ?? self
         slideMenuVC.openSlideMenu(over: self) { _ in sender.isEnabled = true }
     }
-
+    
     // MARK: - BACK BAR BUTTON
     open var backIcon : UIImage {
         //fatalError("Implement back icon for navigation bar")
@@ -59,7 +62,7 @@ open class SlideMenuBaseViewController: UIViewController, SlideMenuDelegate {
         return backImage.colored(.darkGray)
     }
     
- 
+    
     /* enables to add Back Button to Navigation Bar */
     open var backBarButton : UIBarButtonItem {
         
@@ -108,6 +111,20 @@ open class SlideMenuBaseViewController: UIViewController, SlideMenuDelegate {
     open func slideMenuDidClose() {
         self.slideMenuViewController = nil
     }
+    
+    open func slideMenuHeaderView(_ vc: SlideMenuViewController) -> UIView? {
+        return nil
+    }
+    
+    open func slideMenuFooterView(_ vc: SlideMenuViewController) -> UIView? {
+        return nil
+    }
+    
+    // MARK: - Slide Menu Data Source
+    open var menuItems : [SlideMenuItem] { return []  }
+    open var signOutButtonTitle: NSAttributedString? { return nil}
+    open var loginButtonTitle: NSAttributedString? { return nil }
+    
 }
 
 // MARK: - PUBLIC METHODS
@@ -135,7 +152,7 @@ extension SlideMenuBaseViewController {
 
 // MARK: - PUBLIC METHODS - NAVIGATION
 extension SlideMenuBaseViewController {
-
+    
     public func selectTabBar(index: Int, userInfo: [String: AnyObject]? = nil, completion: ((Bool) -> Void)? = nil) {
         
         guard let tbc = self.tabBarController else { completion?(false); return }
@@ -161,7 +178,7 @@ extension SlideMenuBaseViewController {
     }
     
     public func selectContainerView(viewController vc: UIViewController, completion: ((Bool) -> Void)? = nil) {
-    
+        
         guard !popToViewControllerIfExists(vc) else { completion?(false); return }
         
         // searching ContainerViewController in current hirerarchy
@@ -185,7 +202,7 @@ extension SlideMenuBaseViewController {
             cvc.loadViewIfNeeded()
             cvc.setContentView(viewController: vc, timeInterval: 0, completion: completion)
         }
-    
+        
         (tabBarController as? TabBarViewController)?.highlightSelectedItem(false)
     }
     

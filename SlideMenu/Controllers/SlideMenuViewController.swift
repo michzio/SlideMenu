@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol SlideMenuDelegate {
+public protocol SlideMenuDelegate : class {
     func slideMenuDidSelectItem(_ vc: SlideMenuViewController?, _ menuItemId: String)
     func slideMenuDidOpen(_ vc: SlideMenuViewController)
     func slideMenuDidClose()
@@ -25,17 +25,17 @@ public extension SlideMenuDelegate {
     func slideMenuFooterView(_ vc: SlideMenuViewController) -> UIView? { return nil }
 }
 
-public protocol SlideMenuDataSource {
+public protocol SlideMenuDataSource : class {
     
-    var menuItems : [SlideMenuItem] { get }
+    var menuItems : [SlideMenuItem]? { get }
     var signOutButtonTitle: NSAttributedString? { get }
     var loginButtonTitle: NSAttributedString? { get }
 }
 
 public extension SlideMenuDataSource {
     
-    var menuItems : [SlideMenuItem] {
-        return []
+    var menuItems : [SlideMenuItem]? {
+        return nil
     }
     
     var signOutButtonTitle: NSAttributedString? {
@@ -95,7 +95,7 @@ open class SlideMenuViewController: UIViewController {
     
     override open func viewDidLoad() {
         super.viewDidLoad()
-
+        
         configStyle()
         configSwipeGesture()
         configActions()
@@ -212,7 +212,7 @@ open class SlideMenuViewController: UIViewController {
     open func configHeaderView() {
         
         if let view = delegate?.slideMenuHeaderView(self) {
-        
+            
             let size = view.systemLayoutSizeFitting(CGSize(width: headerView.bounds.width, height: 100))
             headerViewHeightConstraint.constant = size.height
             
@@ -256,7 +256,7 @@ extension SlideMenuViewController {
     public func openSlideMenu(over viewController: UIViewController?, completion: ((Bool) -> Void)? = nil) {
         
         guard let parent = viewController?.tabBarController ??
-                           viewController?.navigationController ??
+            viewController?.navigationController ??
             viewController else { completion?(false); return }
         
         parent.addChild(self)
@@ -345,9 +345,9 @@ extension SlideMenuViewController {
 
 // MARK: - Slide Menu - Table View
 extension SlideMenuViewController : UITableViewDataSource, UITableViewDelegate {
- 
-    private func configTableView() {
     
+    private func configTableView() {
+        
         tableView.delegate = self
         tableView.dataSource = self
         
