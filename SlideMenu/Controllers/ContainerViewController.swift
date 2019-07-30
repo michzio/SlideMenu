@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol ContainerViewControllerChildProtocol {
+public protocol ContainerViewControllerChildProtocol {
     
     func setNavigationItems()
     var shouldEnableNavigationControllerToPopContainerViewControllerWhileDisappearing : Bool { get }
 }
 
-extension ContainerViewControllerChildProtocol {
+public extension ContainerViewControllerChildProtocol {
     
     func setNavigationItems() { }
     

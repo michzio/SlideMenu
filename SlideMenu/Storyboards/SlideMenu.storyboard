@@ -21,9 +21,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RfQ-LR-PlQ">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <action selector="didTapToCloseSlideMenu:" destination="chp-VF-RrD" eventType="touchUpInside" id="TMw-eo-Rhi"/>
-                                </connections>
                             </button>
                             <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P59-sp-KeS">
                                 <rect key="frame" x="174" y="0.0" width="240" height="896"/>
@@ -57,10 +54,6 @@
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="50" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="8gM-uK-sUz">
                                         <rect key="frame" x="0.0" y="176" width="240" height="618"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="chp-VF-RrD" id="Di7-We-uCR"/>
-                                            <outlet property="delegate" destination="chp-VF-RrD" id="OjN-jz-Dcu"/>
-                                        </connections>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDv-fj-iv7">
                                         <rect key="frame" x="0.0" y="762" width="240" height="100"/>
@@ -78,9 +71,6 @@
                                         <state key="normal" title="Sign Out">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <connections>
-                                            <action selector="signOutButtonAction:" destination="chp-VF-RrD" eventType="touchUpInside" id="t68-lM-I9U"/>
-                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7GG-3s-FNQ" userLabel="Bottom Safe Area Fill">
                                         <rect key="frame" x="0.0" y="862" width="240" height="34"/>
@@ -128,15 +118,16 @@
                         <viewLayoutGuide key="safeArea" id="5fu-jI-HX4"/>
                     </view>
                     <connections>
-                        <outlet property="bottomSafeAreaFill" destination="7GG-3s-FNQ" id="Uk9-pJ-Vp3"/>
+                        <outlet property="bottomSafeAreaFillView" destination="7GG-3s-FNQ" id="fDD-ji-mOU"/>
                         <outlet property="closeButton" destination="vrP-XH-Tth" id="E2E-BF-5PP"/>
-                        <outlet property="closeMenuOverlay" destination="RfQ-LR-PlQ" id="IYT-te-lHj"/>
-                        <outlet property="menuHeader" destination="SuY-fO-VIK" id="rZw-Xc-CbD"/>
-                        <outlet property="signOutButton" destination="m4t-ED-Dql" id="hUu-v0-GMp"/>
+                        <outlet property="closeOverlayButton" destination="RfQ-LR-PlQ" id="Ghf-0B-7sM"/>
+                        <outlet property="footerView" destination="dDv-fj-iv7" id="zSg-A8-Xls"/>
+                        <outlet property="headerView" destination="SuY-fO-VIK" id="L7k-BV-fBb"/>
+                        <outlet property="signOutButton" destination="m4t-ED-Dql" id="6F5-23-TwN"/>
                         <outlet property="slideMenuTrailingConstraint" destination="nob-t9-AO6" id="psD-UK-cP4"/>
-                        <outlet property="slideMenuView" destination="P59-sp-KeS" id="HrS-3G-OH1"/>
-                        <outlet property="tableView" destination="8gM-uK-sUz" id="8o0-ON-hSd"/>
-                        <outlet property="topSafeAreaFill" destination="VPc-fS-jkR" id="JdA-22-epz"/>
+                        <outlet property="slideMenuView" destination="P59-sp-KeS" id="C9J-RI-j5C"/>
+                        <outlet property="tableView" destination="8gM-uK-sUz" id="EiP-1L-68c"/>
+                        <outlet property="topSafeAreaFillView" destination="VPc-fS-jkR" id="bVu-2m-bwg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="em8-Ow-dNF" userLabel="First Responder" sceneMemberID="firstResponder"/>

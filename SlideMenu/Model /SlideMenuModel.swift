@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SlideMenuItem {
+public struct SlideMenuItem {
     var title : String
     var id: String
     var icon : UIImage

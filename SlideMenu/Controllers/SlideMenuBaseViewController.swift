@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SlideMenuBaseViewController: UIViewController, SlideMenuDelegate {
+public class SlideMenuBaseViewController: UIViewController, SlideMenuDelegate {
     
     var slideMenuViewController: SlideMenuViewController? = nil
 
@@ -93,7 +93,7 @@ class SlideMenuBaseViewController: UIViewController, SlideMenuDelegate {
     }
     
     // MARK: - Slide Menu Delegate
-    func slideMenuDidSelectItem(_ vc: SlideMenuViewController?, _ menuItemId: String) {
+    public func slideMenuDidSelectItem(_ vc: SlideMenuViewController?, _ menuItemId: String) {
         slideMenuDidSelectItem(vc, menuItemId, completion: nil)
     }
     

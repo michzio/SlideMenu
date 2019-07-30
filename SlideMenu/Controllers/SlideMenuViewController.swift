@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol SlideMenuDelegate {
+public protocol SlideMenuDelegate {
     func slideMenuDidSelectItem(_ vc: SlideMenuViewController?, _ menuItemId: String)
     func slideMenuDidOpen(_ vc: SlideMenuViewController)
     func slideMenuDidClose()
@@ -17,7 +17,7 @@ protocol SlideMenuDelegate {
     func slideMenuFooterView(_ vc: SlideMenuViewController) -> UIView?
 }
 
-extension SlideMenuDelegate {
+public extension SlideMenuDelegate {
     func slideMenuDidOpen(_ vc: SlideMenuViewController) { }
     func slideMenuDidClose() { }
     
@@ -25,14 +25,14 @@ extension SlideMenuDelegate {
     func slideMenuFooterView(_ vc: SlideMenuViewController) -> UIView? { return nil }
 }
 
-protocol SlideMenuDataSource {
+public protocol SlideMenuDataSource {
     
     var menuItems : [SlideMenuItem] { get }
     var signOutButtonTitle: NSAttributedString? { get }
     var loginButtonTitle: NSAttributedString? { get }
 }
 
-extension SlideMenuDataSource {
+public extension SlideMenuDataSource {
     
     var menuItems : [SlideMenuItem] {
         return []
@@ -48,7 +48,7 @@ extension SlideMenuDataSource {
     
 }
 
-class SlideMenuViewController: UIViewController {
+public class SlideMenuViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet public weak var closeOverlayButton: UIButton!
@@ -87,7 +87,7 @@ class SlideMenuViewController: UIViewController {
         return dataSource?.menuItems ?? SlideMenuModel.example
     }
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
 
         configStyle()
@@ -100,13 +100,13 @@ class SlideMenuViewController: UIViewController {
         refreshData()
     }
     
-    override func viewDidLayoutSubviews() {
+    override public func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         dimView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
     }
     
-    override var prefersStatusBarHidden: Bool {
+    override public var prefersStatusBarHidden: Bool {
         
         guard DeviceType.IS_IPHONE_X_XS || DeviceType.IS_IPHONE_XR_XS_MAX else { return false }
         
@@ -349,16 +349,16 @@ extension SlideMenuViewController : UITableViewDataSource, UITableViewDelegate {
         
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return menuItems.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: SlideMenuOptionTableViewCell.identifier) as! SlideMenuOptionTableViewCell
         
@@ -376,7 +376,7 @@ extension SlideMenuViewController : UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let menuItemId = menuItems[indexPath.row].id
         self.delegate?.slideMenuDidSelectItem(self, menuItemId)
