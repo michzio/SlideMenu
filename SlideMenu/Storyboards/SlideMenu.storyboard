@@ -122,9 +122,11 @@
                         <outlet property="closeButton" destination="vrP-XH-Tth" id="E2E-BF-5PP"/>
                         <outlet property="closeOverlayButton" destination="RfQ-LR-PlQ" id="Ghf-0B-7sM"/>
                         <outlet property="footerView" destination="dDv-fj-iv7" id="zSg-A8-Xls"/>
+                        <outlet property="footerViewHeightConstraint" destination="KWD-sf-AID" id="dSR-UI-40W"/>
                         <outlet property="headerView" destination="SuY-fO-VIK" id="L7k-BV-fBb"/>
+                        <outlet property="headerViewHeightConstraint" destination="mgZ-9j-Pzm" id="sUY-U6-lKc"/>
                         <outlet property="signOutButton" destination="m4t-ED-Dql" id="6F5-23-TwN"/>
-                        <outlet property="slideMenuTrailingConstraint" destination="nob-t9-AO6" id="psD-UK-cP4"/>
+                        <outlet property="slideMenuTrailingConstraint" destination="nob-t9-AO6" id="xN5-hX-YRS"/>
                         <outlet property="slideMenuView" destination="P59-sp-KeS" id="C9J-RI-j5C"/>
                         <outlet property="tableView" destination="8gM-uK-sUz" id="EiP-1L-68c"/>
                         <outlet property="topSafeAreaFillView" destination="VPc-fS-jkR" id="bVu-2m-bwg"/>
