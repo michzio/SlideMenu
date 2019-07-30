@@ -82,6 +82,12 @@ open class SlideMenuViewController: UIViewController {
     public var dataSource : SlideMenuDataSource?
     
     
+    public var isHiddenSignOutButton: Bool = false {
+        didSet {
+            signOutButton.isHidden = isHiddenSignOutButton
+        }
+    }
+    
     // MARK: - Model
     open var menuItems: [SlideMenuItem] {
         return dataSource?.menuItems ?? SlideMenuModel.example
@@ -130,7 +136,7 @@ open class SlideMenuViewController: UIViewController {
         // to override
         
         self.signOutButton.isHidden = true
-        if isLoggedIn {
+        if isLoggedIn && !isHiddenSignOutButton{
             
             // change to "sign out" button
             signOutButton.isHidden = false

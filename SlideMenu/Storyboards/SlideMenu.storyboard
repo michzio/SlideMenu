@@ -52,26 +52,43 @@
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="50" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="8gM-uK-sUz">
-                                        <rect key="frame" x="0.0" y="176" width="240" height="618"/>
+                                        <rect key="frame" x="0.0" y="176" width="240" height="604"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDv-fj-iv7">
-                                        <rect key="frame" x="0.0" y="762" width="240" height="100"/>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YJb-aQ-WzK">
+                                        <rect key="frame" x="0.0" y="812" width="240" height="50"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Zby-sc-t4a">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="50"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDv-fj-iv7">
+                                                        <rect key="frame" x="0.0" y="0.0" width="240" height="0.0"/>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" id="KWD-sf-AID"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4t-ED-Dql">
+                                                        <rect key="frame" x="0.0" y="0.0" width="240" height="50"/>
+                                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="psC-yU-4Dt"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Sign Out">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="KWD-sf-AID"/>
+                                            <constraint firstAttribute="bottom" secondItem="Zby-sc-t4a" secondAttribute="bottom" id="TTT-2U-R3F"/>
+                                            <constraint firstItem="Zby-sc-t4a" firstAttribute="top" secondItem="YJb-aQ-WzK" secondAttribute="top" id="UUT-GX-At7"/>
+                                            <constraint firstItem="Zby-sc-t4a" firstAttribute="leading" secondItem="YJb-aQ-WzK" secondAttribute="leading" id="XLR-Yo-mEd"/>
+                                            <constraint firstAttribute="trailing" secondItem="Zby-sc-t4a" secondAttribute="trailing" id="Zfj-US-sT8"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4t-ED-Dql">
-                                        <rect key="frame" x="0.0" y="812" width="240" height="50"/>
-                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="psC-yU-4Dt"/>
-                                        </constraints>
-                                        <state key="normal" title="Sign Out">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                    </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7GG-3s-FNQ" userLabel="Bottom Safe Area Fill">
                                         <rect key="frame" x="0.0" y="862" width="240" height="34"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -80,24 +97,20 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="VPc-fS-jkR" firstAttribute="leading" secondItem="P59-sp-KeS" secondAttribute="leading" id="AmW-Un-Ei3"/>
-                                    <constraint firstItem="dDv-fj-iv7" firstAttribute="leading" secondItem="P59-sp-KeS" secondAttribute="leading" id="BsJ-u1-QDE"/>
                                     <constraint firstAttribute="trailing" secondItem="8gM-uK-sUz" secondAttribute="trailing" id="Gj3-0W-dgM"/>
-                                    <constraint firstItem="8gM-uK-sUz" firstAttribute="bottom" secondItem="dDv-fj-iv7" secondAttribute="top" constant="32" id="J93-c5-n9Z"/>
                                     <constraint firstAttribute="trailing" secondItem="7GG-3s-FNQ" secondAttribute="trailing" id="JDt-5J-FAx"/>
                                     <constraint firstItem="7GG-3s-FNQ" firstAttribute="leading" secondItem="P59-sp-KeS" secondAttribute="leading" id="JIc-Rs-0VM"/>
-                                    <constraint firstAttribute="trailing" secondItem="m4t-ED-Dql" secondAttribute="trailing" id="Mg1-ia-wxP"/>
                                     <constraint firstItem="SuY-fO-VIK" firstAttribute="leading" secondItem="P59-sp-KeS" secondAttribute="leading" id="N7d-1p-hU8"/>
-                                    <constraint firstAttribute="trailing" secondItem="dDv-fj-iv7" secondAttribute="trailing" id="QH3-Mj-Y3r"/>
-                                    <constraint firstItem="m4t-ED-Dql" firstAttribute="top" relation="greaterThanOrEqual" secondItem="8gM-uK-sUz" secondAttribute="bottom" id="Yan-M2-rZJ"/>
+                                    <constraint firstItem="YJb-aQ-WzK" firstAttribute="leading" secondItem="P59-sp-KeS" secondAttribute="leading" id="PLk-lG-bmq"/>
                                     <constraint firstAttribute="bottom" secondItem="7GG-3s-FNQ" secondAttribute="bottom" id="aq8-ch-f1R"/>
+                                    <constraint firstAttribute="trailing" secondItem="YJb-aQ-WzK" secondAttribute="trailing" id="b7v-Cp-UNp"/>
                                     <constraint firstAttribute="trailing" secondItem="SuY-fO-VIK" secondAttribute="trailing" id="eBa-az-Yom"/>
-                                    <constraint firstItem="7GG-3s-FNQ" firstAttribute="top" secondItem="dDv-fj-iv7" secondAttribute="bottom" id="eO6-VM-jgY"/>
                                     <constraint firstItem="8gM-uK-sUz" firstAttribute="leading" secondItem="P59-sp-KeS" secondAttribute="leading" id="fUH-bO-epA"/>
-                                    <constraint firstItem="7GG-3s-FNQ" firstAttribute="top" secondItem="m4t-ED-Dql" secondAttribute="bottom" id="fcN-eS-nDO"/>
+                                    <constraint firstItem="7GG-3s-FNQ" firstAttribute="top" secondItem="YJb-aQ-WzK" secondAttribute="bottom" id="fmO-04-Cgp"/>
                                     <constraint firstAttribute="trailing" secondItem="VPc-fS-jkR" secondAttribute="trailing" id="jeH-si-dBe"/>
                                     <constraint firstItem="8gM-uK-sUz" firstAttribute="top" secondItem="SuY-fO-VIK" secondAttribute="bottom" constant="32" id="swQ-EF-qLE"/>
+                                    <constraint firstItem="YJb-aQ-WzK" firstAttribute="top" secondItem="8gM-uK-sUz" secondAttribute="bottom" constant="32" id="tCt-cf-DIT"/>
                                     <constraint firstItem="SuY-fO-VIK" firstAttribute="top" secondItem="VPc-fS-jkR" secondAttribute="bottom" id="vOY-TF-CZ6"/>
-                                    <constraint firstItem="m4t-ED-Dql" firstAttribute="leading" secondItem="P59-sp-KeS" secondAttribute="leading" id="vSB-5c-MMS"/>
                                     <constraint firstItem="VPc-fS-jkR" firstAttribute="top" secondItem="P59-sp-KeS" secondAttribute="top" id="xId-KW-OPX"/>
                                     <constraint firstAttribute="width" constant="240" id="zFN-zh-AJv"/>
                                 </constraints>
