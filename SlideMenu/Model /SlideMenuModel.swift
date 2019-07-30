@@ -29,14 +29,14 @@ extension SlideMenuItem {
 }
 
 open class SlideMenuModel : SlideMenuDataSource {
-    
+  
     public static var chevronImage : UIImage {
         return UIImage(named:"chevron-right", in: Bundle(for: self), compatibleWith:nil)!
     }
     
     public init() { }
     
-    open var menuItems: [SlideMenuItem]? {
+    open var menuItems: [SlideMenuItem] {
         return [
             SlideMenuItem(title: "Example", id: "example", icon: SlideMenuModel.chevronImage)
         ]

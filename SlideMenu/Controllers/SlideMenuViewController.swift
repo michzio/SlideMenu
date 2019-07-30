@@ -17,6 +17,7 @@ public protocol SlideMenuDelegate : class {
     func slideMenuFooterView(_ vc: SlideMenuViewController) -> UIView?
 }
 
+
 public extension SlideMenuDelegate {
     func slideMenuDidOpen(_ vc: SlideMenuViewController) { }
     func slideMenuDidClose() { }
@@ -31,6 +32,7 @@ public protocol SlideMenuDataSource : class {
     var signOutButtonTitle: NSAttributedString? { get }
     var loginButtonTitle: NSAttributedString? { get }
 }
+
 
 public extension SlideMenuDataSource {
     
