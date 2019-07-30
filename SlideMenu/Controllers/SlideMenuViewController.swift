@@ -193,7 +193,9 @@ class SlideMenuViewController: UIViewController {
         
         // Close Button
         closeButton.setTitleColor(.black, for: .normal)
-        closeButton.setTitle("x", for: .normal)
+        closeButton.setTitle("", for: .normal)
+        closeButton.setImage(closeImage, for: .normal)
+        closeButton.setImage(closeImage.colored(.darkGray), for: .highlighted)
         closeButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         
         // Sign Out Button
@@ -391,5 +393,12 @@ extension SlideMenuViewController {
     
     class var OnScreenFrame : CGRect {
         return CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+    }
+}
+
+extension SlideMenuViewController {
+    
+    private var closeImage : UIImage {
+        return UIImage(named: "close", in: Bundle(for: SlideMenuViewController.self), compatibleWith: nil)!
     }
 }

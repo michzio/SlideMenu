@@ -23,6 +23,7 @@
 		848D733922EF30F9003D09AA /* ViewEmbedder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848D733822EF30F9003D09AA /* ViewEmbedder.swift */; };
 		848D733B22EF3813003D09AA /* UINavigationControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848D733A22EF3813003D09AA /* UINavigationControllerExtensions.swift */; };
 		848D733D22EF3A62003D09AA /* UIWindowExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848D733C22EF3A62003D09AA /* UIWindowExtensions.swift */; };
+		848D734122F02F09003D09AA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 848D734022F02F09003D09AA /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		848D733822EF30F9003D09AA /* ViewEmbedder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewEmbedder.swift; sourceTree = "<group>"; };
 		848D733A22EF3813003D09AA /* UINavigationControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtensions.swift; sourceTree = "<group>"; };
 		848D733C22EF3A62003D09AA /* UIWindowExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindowExtensions.swift; sourceTree = "<group>"; };
+		848D734022F02F09003D09AA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 		848D731022EEF65E003D09AA /* SlideMenu */ = {
 			isa = PBXGroup;
 			children = (
+				848D733E22F02E70003D09AA /* Supporting Files */,
 				848D732B22EF238B003D09AA /* Extensions */,
 				848D732622EF2255003D09AA /* Cells */,
 				848D732522EF2246003D09AA /* Views */,
@@ -153,6 +156,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		848D733E22F02E70003D09AA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				848D734022F02F09003D09AA /* Images.xcassets */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -222,6 +233,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				848D734122F02F09003D09AA /* Images.xcassets in Resources */,
 				848D732A22EF226E003D09AA /* SlideMenuOptionTableViewCell.xib in Resources */,
 				848D732122EF1B23003D09AA /* SlideMenu.storyboard in Resources */,
 			);
@@ -388,6 +400,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SlideMenu/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -416,6 +429,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SlideMenu/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

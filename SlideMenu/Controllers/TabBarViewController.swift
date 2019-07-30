@@ -102,7 +102,7 @@ extension TabBarViewController {
     
     private func popSelectedItemToRoot(_ item : UITabBarItem) {
         
-        if let index = self.tabBar.items?.index(of: item) {
+        if let index = self.tabBar.items?.firstIndex(of: item) {
             if let selectedController = self.viewControllers?[index] as? UINavigationController {
                 if selectedController.viewControllers.contains(where: { $0 is ContainerViewController
                 }) {

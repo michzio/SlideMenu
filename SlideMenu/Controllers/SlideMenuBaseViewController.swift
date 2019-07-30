@@ -14,11 +14,13 @@ class SlideMenuBaseViewController: UIViewController, SlideMenuDelegate {
 
     // MARK: - SLIDE MENU BAR BUTTON
     open var barsIcon : UIImage {
-        fatalError("Implement bars icon for slide menu")
+        //fatalError("Implement bars icon for slide menu")
+        return menuImage
     }
     
     open var barsHighlightedIcon : UIImage {
-        fatalError("Implement highlighted bars icon for slide menu")
+        //fatalError("Implement highlighted bars icon for slide menu")
+        return menuImage.colored(.darkGray)
     }
     
     /* enables to add Hamburger Button to Navigation Bar */
@@ -48,11 +50,13 @@ class SlideMenuBaseViewController: UIViewController, SlideMenuDelegate {
 
     // MARK: - BACK BAR BUTTON
     open var backIcon : UIImage {
-        fatalError("Implement back icon for navigation bar")
+        //fatalError("Implement back icon for navigation bar")
+        return backImage
     }
     
     open var backHighlightedIcon : UIImage {
-        fatalError("Implement highlighted back icon for navigation bar")
+        //fatalError("Implement highlighted back icon for navigation bar")
+        return backImage.colored(.darkGray)
     }
     
  
@@ -247,5 +251,18 @@ extension SlideMenuBaseViewController {
         
         let appDelegate = UIApplication.shared.delegate
         appDelegate?.window??.set(rootViewController: rootViewController, completion: completion)
+    }
+}
+
+extension SlideMenuBaseViewController {
+    
+    private var menuImage : UIImage {
+        return UIImage(named: "menu",
+                       in: Bundle(for: SlideMenuBaseViewController.self),
+                       compatibleWith: nil)!
+    }
+    
+    private var backImage : UIImage {
+        return UIImage(named: "chevron-left", in: Bundle(for: SlideMenuBaseViewController.self), compatibleWith: nil)!
     }
 }

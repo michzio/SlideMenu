@@ -28,9 +28,13 @@ extension SlideMenuItem {
     }
 }
 
-struct SlideMenuModel {
+class SlideMenuModel {
+    
+    static var chevronImage : UIImage {
+        return UIImage(named:"chevron-right", in: Bundle(for: self), compatibleWith:nil)!
+    }
     
     static var example : [SlideMenuItem] = [
-        //SlideMenuItem(title: "Example", id: "example", icon: UIImage(named:"")!)
+        SlideMenuItem(title: "Example", id: "example", icon: chevronImage)
     ]
 }
