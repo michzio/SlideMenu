@@ -253,11 +253,11 @@ open class SlideMenuViewController: UIViewController {
 // MARK: - PUBLIC METHODS
 extension SlideMenuViewController {
     
-    public func openSlideMenu(over viewController: UIViewController?, completion: (() -> Void)? = nil) {
+    public func openSlideMenu(over viewController: UIViewController?, completion: ((Bool) -> Void)? = nil) {
         
         guard let parent = viewController?.tabBarController ??
                            viewController?.navigationController ??
-                            viewController else { return }
+            viewController else { completion?(false); return }
         
         parent.addChild(self)
         
@@ -281,6 +281,7 @@ extension SlideMenuViewController {
             
             self.didMove(toParent: parent)
             
+            completion?(true)
             self.delegate?.slideMenuDidOpen(self)
         })
     }

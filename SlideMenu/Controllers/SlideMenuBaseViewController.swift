@@ -45,7 +45,7 @@ open class SlideMenuBaseViewController: UIViewController, SlideMenuDelegate {
         let storyboard = UIStoryboard(name: "SlideMenu", bundle: Bundle(for: SlideMenuBaseViewController.self))
         let slideMenuVC = storyboard.instantiateViewController(withIdentifier: SlideMenuViewController.identifier) as! SlideMenuViewController
         slideMenuVC.delegate = self
-        slideMenuVC.openSlideMenu(over: self) { sender.isEnabled = true }
+        slideMenuVC.openSlideMenu(over: self) { _ in sender.isEnabled = true }
     }
 
     // MARK: - BACK BAR BUTTON
