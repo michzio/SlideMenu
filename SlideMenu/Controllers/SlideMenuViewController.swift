@@ -48,7 +48,7 @@ public extension SlideMenuDataSource {
     
 }
 
-public class SlideMenuViewController: UIViewController {
+open class SlideMenuViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet public weak var closeOverlayButton: UIButton!
@@ -87,7 +87,7 @@ public class SlideMenuViewController: UIViewController {
         return dataSource?.menuItems ?? SlideMenuModel.example
     }
     
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
 
         configStyle()
@@ -100,13 +100,13 @@ public class SlideMenuViewController: UIViewController {
         refreshData()
     }
     
-    override public func viewDidLayoutSubviews() {
+    override open func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         dimView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
     }
     
-    override public var prefersStatusBarHidden: Bool {
+    override open var prefersStatusBarHidden: Bool {
         
         guard DeviceType.IS_IPHONE_X_XS || DeviceType.IS_IPHONE_XR_XS_MAX else { return false }
         

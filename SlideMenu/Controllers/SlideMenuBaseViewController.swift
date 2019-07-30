@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class SlideMenuBaseViewController: UIViewController, SlideMenuDelegate {
+open class SlideMenuBaseViewController: UIViewController, SlideMenuDelegate {
     
     var slideMenuViewController: SlideMenuViewController? = nil
 
