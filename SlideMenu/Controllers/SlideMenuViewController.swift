@@ -27,15 +27,15 @@ public extension SlideMenuDelegate {
 
 public protocol SlideMenuDataSource : class {
     
-    var menuItems : [SlideMenuItem]? { get }
+    var menuItems : [SlideMenuItem] { get }
     var signOutButtonTitle: NSAttributedString? { get }
     var loginButtonTitle: NSAttributedString? { get }
 }
 
 public extension SlideMenuDataSource {
     
-    var menuItems : [SlideMenuItem]? {
-        return nil
+    var menuItems : [SlideMenuItem] {
+        return []
     }
     
     var signOutButtonTitle: NSAttributedString? {
@@ -78,8 +78,8 @@ open class SlideMenuViewController: UIViewController {
     @IBOutlet weak var footerViewHeightConstraint: NSLayoutConstraint!
     
     // MARK: - Delegate & Data Source
-    public var delegate : SlideMenuDelegate?
-    public var dataSource : SlideMenuDataSource?
+    public weak var delegate : SlideMenuDelegate?
+    public weak var dataSource : SlideMenuDataSource!
     
     
     public var isHiddenSignOutButton: Bool = false {
@@ -90,7 +90,7 @@ open class SlideMenuViewController: UIViewController {
     
     // MARK: - Model
     open var menuItems: [SlideMenuItem] {
-        return dataSource?.menuItems ?? SlideMenuModel.example
+        return dataSource.menuItems
     }
     
     override open func viewDidLoad() {

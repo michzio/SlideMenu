@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class SlideMenuBaseViewController: UIViewController, SlideMenuDelegate, SlideMenuDataSource {
+open class SlideMenuBaseViewController: UIViewController, SlideMenuDelegate {
     
     public var slideMenuViewController: SlideMenuViewController? = nil
     public weak var menuDelegate : SlideMenuDelegate? = nil
@@ -47,7 +47,7 @@ open class SlideMenuBaseViewController: UIViewController, SlideMenuDelegate, Sli
         let storyboard = UIStoryboard(name: "SlideMenu", bundle: Bundle(for: SlideMenuBaseViewController.self))
         let slideMenuVC = storyboard.instantiateViewController(withIdentifier: SlideMenuViewController.identifier) as! SlideMenuViewController
         slideMenuVC.delegate = menuDelegate ?? self
-        slideMenuVC.dataSource = menuDataSource ?? self
+        slideMenuVC.dataSource = menuDataSource ?? SlideMenuModel()
         slideMenuVC.openSlideMenu(over: self) { _ in sender.isEnabled = true }
     }
     
@@ -119,12 +119,6 @@ open class SlideMenuBaseViewController: UIViewController, SlideMenuDelegate, Sli
     open func slideMenuFooterView(_ vc: SlideMenuViewController) -> UIView? {
         return nil
     }
-    
-    // MARK: - Slide Menu Data Source
-    open var menuItems : [SlideMenuItem] { return []  }
-    open var signOutButtonTitle: NSAttributedString? { return nil}
-    open var loginButtonTitle: NSAttributedString? { return nil }
-    
 }
 
 // MARK: - PUBLIC METHODS

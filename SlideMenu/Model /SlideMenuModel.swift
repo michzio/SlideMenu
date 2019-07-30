@@ -14,7 +14,7 @@ public struct SlideMenuItem {
     var icon : UIImage
     var badge : Int?
     
-    init(title: String, id: String, icon: UIImage, badge: Int? = nil) {
+    public init(title: String, id: String, icon: UIImage, badge: Int? = nil) {
         self.title = title
         self.id = id
         self.icon = icon
@@ -28,13 +28,24 @@ extension SlideMenuItem {
     }
 }
 
-class SlideMenuModel {
+open class SlideMenuModel : SlideMenuDataSource {
     
-    static var chevronImage : UIImage {
+    public static var chevronImage : UIImage {
         return UIImage(named:"chevron-right", in: Bundle(for: self), compatibleWith:nil)!
     }
     
-    static var example : [SlideMenuItem] = [
-        SlideMenuItem(title: "Example", id: "example", icon: chevronImage)
-    ]
+    open var menuItems: [SlideMenuItem]? {
+        return [
+            SlideMenuItem(title: "Example", id: "example", icon: SlideMenuModel.chevronImage)
+        ]
+    }
+    
+    open var signOutButtonTitle: NSAttributedString? {
+        return nil
+    }
+    
+    open var loginButtonTitle: NSAttributedString? {
+        return nil
+    }
+    
 }
