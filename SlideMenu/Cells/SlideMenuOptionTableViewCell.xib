@@ -23,7 +23,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="240" height="49.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" alpha="0.6600000262260437" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dishIco" translatesAutoresizingMaskIntoConstraints="NO" id="YMh-eA-uvx">
+                    <imageView userInteractionEnabled="NO" alpha="0.6600000262260437" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron-right" translatesAutoresizingMaskIntoConstraints="NO" id="YMh-eA-uvx">
                         <rect key="frame" x="32" y="15.5" width="19" height="19"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="19" id="7aX-GN-bMK"/>
@@ -79,6 +79,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="dishIco" width="16" height="16"/>
+        <image name="chevron-right" width="24" height="24"/>
     </resources>
 </document>
