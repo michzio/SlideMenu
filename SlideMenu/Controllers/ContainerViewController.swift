@@ -23,25 +23,25 @@ public extension ContainerViewControllerChildProtocol {
     }
 }
 
-class ContainerViewController : SlideMenuBaseViewController {
+public class ContainerViewController : SlideMenuBaseViewController {
     
     @IBOutlet weak var containerView: UIView!
     
     public private(set) var contentViewController: UIViewController?
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         
         configBarButtons()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         (self.tabBarController as? TabBarViewController)?.highlightSelectedItem(false)
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    override public func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
         func isPoppable() -> Bool {

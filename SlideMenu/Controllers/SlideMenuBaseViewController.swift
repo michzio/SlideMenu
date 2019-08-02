@@ -39,15 +39,34 @@ open class SlideMenuBaseViewController: UIViewController, SlideMenuDelegate {
         return UIBarButtonItem(customView: button)
     }
     
+    open func createSlideMenuController() -> SlideMenuViewController {
+        
+        let storyboard = UIStoryboard(name: "SlideMenu", bundle: Bundle(for: SlideMenuBaseViewController.self))
+        let slideMenuVC = storyboard.instantiateViewController(withIdentifier: SlideMenuViewController.identifier) as! SlideMenuViewController
+        
+        slideMenuVC.delegate = menuDelegate ?? self
+        slideMenuVC.dataSource = menuDataSource ?? SlideMenuModel()
+        
+        return slideMenuVC
+    }
+    
+    open func createContainerController() -> ContainerViewController {
+        
+        let storyboard = UIStoryboard(name: "SlideMenu", bundle: Bundle(for: SlideMenuBaseViewController.self))
+        let cvc = storyboard.instantiateViewController(withIdentifier: ContainerViewController.identifier) as! ContainerViewController
+        
+        cvc.menuDelegate = menuDelegate
+        cvc.menuDataSource = menuDataSource
+        
+        return cvc
+    }
+    
     @objc func didTapSlideMenuBarButton(_ sender: UIBarButtonItem) {
         
         sender.isEnabled = false
         self.view.endEditing(true)
         
-        let storyboard = UIStoryboard(name: "SlideMenu", bundle: Bundle(for: SlideMenuBaseViewController.self))
-        let slideMenuVC = storyboard.instantiateViewController(withIdentifier: SlideMenuViewController.identifier) as! SlideMenuViewController
-        slideMenuVC.delegate = menuDelegate ?? self
-        slideMenuVC.dataSource = menuDataSource ?? SlideMenuModel()
+        let slideMenuVC = createSlideMenuController()
         slideMenuVC.openSlideMenu(over: self) { _ in sender.isEnabled = true }
     }
     
@@ -189,8 +208,7 @@ extension SlideMenuBaseViewController {
             cvc.setContentView(viewController: vc, transition: .backward, completion: completion)
         } else {
             
-            let storyboard = UIStoryboard(name: "SlideMenu", bundle: Bundle(for: SlideMenuBaseViewController.self))
-            let cvc = storyboard.instantiateViewController(withIdentifier: ContainerViewController.identifier) as! ContainerViewController
+            let cvc = createContainerController()
             
             self.show(cvc, sender: cvc)
             cvc.loadViewIfNeeded()
