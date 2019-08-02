@@ -52,10 +52,11 @@ open class SlideMenuBaseViewController: UIViewController, SlideMenuDelegate {
     
     open func createContainerController() -> ContainerViewController {
         
-        let storyboard = UIStoryboard(name: "SlideMenu", bundle: Bundle(for: SlideMenuBaseViewController.self))
-        let cvc = storyboard.instantiateViewController(withIdentifier: ContainerViewController.identifier) as! ContainerViewController
+        //let storyboard = UIStoryboard(name: "SlideMenu", bundle: Bundle(for: SlideMenuBaseViewController.self))
+        //let cvc = storyboard.instantiateViewController(withIdentifier: ContainerViewController.identifier) as! ContainerViewController
         
-        cvc.menuDelegate = menuDelegate
+        let cvc = ContainerViewController()
+        cvc.menuDelegate = menuDelegate ?? self
         cvc.menuDataSource = menuDataSource
         
         return cvc
@@ -214,6 +215,7 @@ extension SlideMenuBaseViewController {
             cvc.loadViewIfNeeded()
             cvc.setContentView(viewController: vc, timeInterval: 0, completion: completion)
         }
+        
         
         (tabBarController as? TabBarViewController)?.highlightSelectedItem(false)
     }

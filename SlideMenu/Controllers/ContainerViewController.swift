@@ -23,25 +23,27 @@ public extension ContainerViewControllerChildProtocol {
     }
 }
 
-public class ContainerViewController : SlideMenuBaseViewController {
+open class ContainerViewController : SlideMenuBaseViewController {
     
-    @IBOutlet weak var containerView: UIView!
+    //@IBOutlet weak var containerView: UIView!
+    var containerView: UIView!
     
     public private(set) var contentViewController: UIViewController?
     
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         
         configBarButtons()
+        configContainerView()
     }
     
-    override public func viewDidAppear(_ animated: Bool) {
+    override open func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         (self.tabBarController as? TabBarViewController)?.highlightSelectedItem(false)
     }
     
-    override public func viewDidDisappear(_ animated: Bool) {
+    override open func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
         func isPoppable() -> Bool {
@@ -86,6 +88,18 @@ extension ContainerViewController {
     private func configBarButtons() {
         addSlideMenuBarButton()
         addCustomBackBarButton()
+    }
+    
+    private func configContainerView() {
+        
+        self.containerView = UIView()
+        view.addSubview(containerView)
+        
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        containerView.leadingAnchor.constraint(equalTo: view.safeLeadingAnchor).isActive = true
+        containerView.trailingAnchor.constraint(equalTo: view.safeTrailingAnchor).isActive = true
+        containerView.topAnchor.constraint(equalTo: view.safeTopAnchor).isActive = true
+        containerView.bottomAnchor.constraint(equalTo: view.safeBottomAnchor).isActive = true
     }
 }
 

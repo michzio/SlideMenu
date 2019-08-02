@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		841C63BA22F457770074E16E /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841C63B922F457770074E16E /* UIViewExtensions.swift */; };
 		848D731322EEF65E003D09AA /* SlideMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 848D731122EEF65E003D09AA /* SlideMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		848D731A22EEFC93003D09AA /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848D731922EEFC93003D09AA /* SlideMenuViewController.swift */; };
 		848D731E22EEFF9C003D09AA /* SlideMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848D731D22EEFF9C003D09AA /* SlideMenuModel.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		841C63B922F457770074E16E /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		848D730E22EEF65E003D09AA /* SlideMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SlideMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		848D731122EEF65E003D09AA /* SlideMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SlideMenu.h; sourceTree = "<group>"; };
 		848D731222EEF65E003D09AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				848D733422EF2D57003D09AA /* UIImageExtensions.swift */,
 				848D733A22EF3813003D09AA /* UINavigationControllerExtensions.swift */,
 				848D733C22EF3A62003D09AA /* UIWindowExtensions.swift */,
+				841C63B922F457770074E16E /* UIViewExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				848D733122EF28F0003D09AA /* UIViewController.swift in Sources */,
 				848D732422EF1F20003D09AA /* DeviceType.swift in Sources */,
 				848D731E22EEFF9C003D09AA /* SlideMenuModel.swift in Sources */,
+				841C63BA22F457770074E16E /* UIViewExtensions.swift in Sources */,
 				848D733B22EF3813003D09AA /* UINavigationControllerExtensions.swift in Sources */,
 				848D731A22EEFC93003D09AA /* SlideMenuViewController.swift in Sources */,
 				848D732922EF226E003D09AA /* SlideMenuOptionTableViewCell.swift in Sources */,
