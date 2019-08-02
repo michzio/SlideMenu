@@ -30,5 +30,4 @@ extension UIImage {
             context.fill(CGRect(x: 0, y: 0, width: size.width, height: size.height), blendMode: .sourceAtop)
         }
     }
-    
 }

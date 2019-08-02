@@ -32,7 +32,7 @@ open class SlideMenuBaseViewController: UIViewController, SlideMenuDelegate {
         button.setImage(barsIcon, for: .normal)
         button.setImage(barsHighlightedIcon, for: .normal)
         button.frame = CGRect(x: 0, y: 0, width: 35, height: 30)
-        button.backgroundColor = .white
+        button.backgroundColor = .clear
         //button.layer.cornerRadius = 2
         button.addTarget(self, action: #selector(self.didTapSlideMenuBarButton(_:)), for: .touchUpInside)
         
@@ -70,7 +70,7 @@ open class SlideMenuBaseViewController: UIViewController, SlideMenuDelegate {
         button.setImage(backIcon, for: .normal)
         button.setImage(backHighlightedIcon, for: .highlighted)
         button.frame = CGRect(x: 0, y: 0, width: 35, height: 30)
-        button.backgroundColor = .white
+        button.backgroundColor = .clear
         //button.layer.cornerRadius = 2
         button.addTarget(self, action: #selector(self.didTapBackButton(_:)), for: .touchUpInside)
         
