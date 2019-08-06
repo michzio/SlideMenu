@@ -25,6 +25,8 @@
 		848D733B22EF3813003D09AA /* UINavigationControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848D733A22EF3813003D09AA /* UINavigationControllerExtensions.swift */; };
 		848D733D22EF3A62003D09AA /* UIWindowExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848D733C22EF3A62003D09AA /* UIWindowExtensions.swift */; };
 		848D734122F02F09003D09AA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 848D734022F02F09003D09AA /* Images.xcassets */; };
+		84A8391122F96F100095C852 /* SlideMenuBaseViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8391022F96F100095C852 /* SlideMenuBaseViewControllerDelegate.swift */; };
+		84A8391322F971280095C852 /* SlideMenuBaseViewController+SlideMenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8391222F971280095C852 /* SlideMenuBaseViewController+SlideMenuDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		848D733A22EF3813003D09AA /* UINavigationControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtensions.swift; sourceTree = "<group>"; };
 		848D733C22EF3A62003D09AA /* UIWindowExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindowExtensions.swift; sourceTree = "<group>"; };
 		848D734022F02F09003D09AA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		84A8391022F96F100095C852 /* SlideMenuBaseViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuBaseViewControllerDelegate.swift; sourceTree = "<group>"; };
+		84A8391222F971280095C852 /* SlideMenuBaseViewController+SlideMenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SlideMenuBaseViewController+SlideMenuDelegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,7 @@
 		848D731022EEF65E003D09AA /* SlideMenu */ = {
 			isa = PBXGroup;
 			children = (
+				84A8390F22F96EFA0095C852 /* Protocols */,
 				848D733E22F02E70003D09AA /* Supporting Files */,
 				848D732B22EF238B003D09AA /* Extensions */,
 				848D732622EF2255003D09AA /* Cells */,
@@ -109,6 +114,7 @@
 				848D732E22EF253A003D09AA /* SlideMenuBaseViewController.swift */,
 				848D733222EF2C09003D09AA /* TabBarViewController.swift */,
 				848D733622EF2E47003D09AA /* ContainerViewController.swift */,
+				84A8391222F971280095C852 /* SlideMenuBaseViewController+SlideMenuDelegate.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -165,6 +171,14 @@
 				848D734022F02F09003D09AA /* Images.xcassets */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		84A8390F22F96EFA0095C852 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				84A8391022F96F100095C852 /* SlideMenuBaseViewControllerDelegate.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +273,8 @@
 				848D731E22EEFF9C003D09AA /* SlideMenuModel.swift in Sources */,
 				841C63BA22F457770074E16E /* UIViewExtensions.swift in Sources */,
 				848D733B22EF3813003D09AA /* UINavigationControllerExtensions.swift in Sources */,
+				84A8391322F971280095C852 /* SlideMenuBaseViewController+SlideMenuDelegate.swift in Sources */,
+				84A8391122F96F100095C852 /* SlideMenuBaseViewControllerDelegate.swift in Sources */,
 				848D731A22EEFC93003D09AA /* SlideMenuViewController.swift in Sources */,
 				848D732922EF226E003D09AA /* SlideMenuOptionTableViewCell.swift in Sources */,
 				848D732F22EF253A003D09AA /* SlideMenuBaseViewController.swift in Sources */,

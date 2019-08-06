@@ -8,21 +8,20 @@
 
 import UIKit
 
-open class SlideMenuBaseViewController: UIViewController, SlideMenuDelegate {
+open class SlideMenuBaseViewController: UIViewController {
     
     public var slideMenuViewController: SlideMenuViewController? = nil
-    public var menuDelegate : SlideMenuDelegate? = nil
+   
     public var menuDataSource : SlideMenuDataSource? = nil
+    public weak var delegate : SlideMenuBaseViewControllerDelegate? = nil
     
     // MARK: - SLIDE MENU BAR BUTTON
     open var barsIcon : UIImage {
-        //fatalError("Implement bars icon for slide menu")
-        return menuImage
+        return delegate?.barsIcon ?? menuImage
     }
     
     open var barsHighlightedIcon : UIImage {
-        //fatalError("Implement highlighted bars icon for slide menu")
-        return menuImage.colored(.darkGray)
+        return delegate?.barsIconHighlighted ?? menuImage.colored(.darkGray)
     }
     
     /* enables to add Hamburger Button to Navigation Bar */
@@ -44,19 +43,17 @@ open class SlideMenuBaseViewController: UIViewController, SlideMenuDelegate {
         let storyboard = UIStoryboard(name: "SlideMenu", bundle: Bundle(for: SlideMenuBaseViewController.self))
         let slideMenuVC = storyboard.instantiateViewController(withIdentifier: SlideMenuViewController.identifier) as! SlideMenuViewController
         
-        slideMenuVC.delegate = menuDelegate ?? self
+        slideMenuVC.delegate = self
         slideMenuVC.dataSource = menuDataSource ?? SlideMenuModel()
+        
         
         return slideMenuVC
     }
     
     open func createContainerController() -> ContainerViewController {
         
-        //let storyboard = UIStoryboard(name: "SlideMenu", bundle: Bundle(for: SlideMenuBaseViewController.self))
-        //let cvc = storyboard.instantiateViewController(withIdentifier: ContainerViewController.identifier) as! ContainerViewController
-        
         let cvc = ContainerViewController()
-        cvc.menuDelegate = menuDelegate ?? self
+        cvc.delegate = delegate
         cvc.menuDataSource = menuDataSource
         
         return cvc
@@ -65,21 +62,22 @@ open class SlideMenuBaseViewController: UIViewController, SlideMenuDelegate {
     @objc func didTapSlideMenuBarButton(_ sender: UIBarButtonItem) {
         
         sender.isEnabled = false
-        self.view.endEditing(true)
+        view.endEditing(true)
         
         let slideMenuVC = createSlideMenuController()
         slideMenuVC.openSlideMenu(over: self) { _ in sender.isEnabled = true }
+        
+        delegate?.didTapSlideMenuBarButton(self, sender: sender)
     }
     
     // MARK: - BACK BAR BUTTON
     open var backIcon : UIImage {
-        //fatalError("Implement back icon for navigation bar")
-        return backImage
+        return delegate?.backIcon ?? backImage
     }
     
     open var backHighlightedIcon : UIImage {
         //fatalError("Implement highlighted back icon for navigation bar")
-        return backImage.colored(.darkGray)
+        return delegate?.backIcon ?? backImage.colored(.darkGray)
     }
     
     
@@ -113,31 +111,6 @@ open class SlideMenuBaseViewController: UIViewController, SlideMenuDelegate {
                 }
             }
         }
-    }
-    
-    // MARK: - Slide Menu Delegate
-    public func slideMenuDidSelectItem(_ vc: SlideMenuViewController?, _ menuItemId: String) {
-        slideMenuDidSelectItem(vc, menuItemId, completion: nil)
-    }
-    
-    open func slideMenuDidSelectItem(_ vc: SlideMenuViewController?, _ menuItemId: String, completion: ((Bool) -> Void)? = nil)  {
-        
-    }
-    
-    open func slideMenuDidOpen(_ vc: SlideMenuViewController) {
-        self.slideMenuViewController = vc
-    }
-    
-    open func slideMenuDidClose() {
-        self.slideMenuViewController = nil
-    }
-    
-    open func slideMenuHeaderView(_ vc: SlideMenuViewController) -> UIView? {
-        return nil
-    }
-    
-    open func slideMenuFooterView(_ vc: SlideMenuViewController) -> UIView? {
-        return nil
     }
 }
 
@@ -185,8 +158,9 @@ extension SlideMenuBaseViewController {
         (tabBarController as? TabBarViewController)?.highlightSelectedItem(true)
     }
     
-    public func selectContainerView(viewController identifier: String, storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil), completion: ((Bool) -> Void)? = nil) {
+    public func selectContainerView(viewController identifier: String, storyboard name: String = "Main", completion: ((Bool) -> Void)? = nil) {
         
+        let storyboard = UIStoryboard(name: name, bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: identifier)
         selectContainerView(viewController: vc)
     }
@@ -270,7 +244,7 @@ extension SlideMenuBaseViewController {
         return nil
     }
     
-    private func selectWindow(rootViewController identifier: String, storyboard name: String = "iPhone",  completion: ((Bool) -> Void)? = nil ) {
+    public func selectWindow(rootViewController identifier: String, storyboard name: String = "Main",  completion: ((Bool) -> Void)? = nil ) {
         
         let storyboard = UIStoryboard(name: name, bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: identifier)
@@ -278,7 +252,7 @@ extension SlideMenuBaseViewController {
         selectWindow(rootViewController: vc, completion: completion)
     }
     
-    private func selectWindow(rootViewController: UIViewController, completion: ((Bool) -> Void)? = nil) {
+    public func selectWindow(rootViewController: UIViewController, completion: ((Bool) -> Void)? = nil) {
         
         let appDelegate = UIApplication.shared.delegate
         appDelegate?.window??.set(rootViewController: rootViewController, completion: completion)

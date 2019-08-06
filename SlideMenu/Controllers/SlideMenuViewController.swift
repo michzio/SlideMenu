@@ -15,6 +15,15 @@ public protocol SlideMenuDelegate : class {
     
     func slideMenuHeaderView(_ vc: SlideMenuViewController) -> UIView?
     func slideMenuFooterView(_ vc: SlideMenuViewController) -> UIView?
+    
+    var slideMenuOptionCellClass : SlideMenuOptionTableViewCell.Type { get }
+    
+    var slideMenuOptionTextColor : UIColor? { get }
+    var slideMenuOptionBackgroundColor : UIColor? { get }
+    var slideMenuOptionTextFont : UIFont? { get }
+    
+    var slideMenuFooterColor : UIColor? { get }
+    var slideMenuHeaderColor : UIColor? { get }
 }
 
 
@@ -24,6 +33,17 @@ public extension SlideMenuDelegate {
     
     func slideMenuHeaderView(_ vc: SlideMenuViewController) -> UIView? { return nil }
     func slideMenuFooterView(_ vc: SlideMenuViewController) -> UIView? { return nil }
+    
+    var slideMenuOptionCellClass : SlideMenuOptionTableViewCell.Type {
+        return SlideMenuOptionTableViewCell.self
+    }
+    
+    var slideMenuOptionTextColor : UIColor? { return nil }
+    var slideMenuOptionBackgroundColor : UIColor? { return nil }
+    var slideMenuOptionTextFont : UIFont? { return nil }
+    
+    var slideMenuFooterColor : UIColor? { return nil }
+    var slideMenuHeaderColor : UIColor? { return nil }
 }
 
 public protocol SlideMenuDataSource : class {
@@ -194,10 +214,22 @@ open class SlideMenuViewController: UIViewController {
         slideMenuView.backgroundColor = .white
         
         // Menu Header
-        topSafeAreaFillView.backgroundColor = UIColor.lightGray
-        headerView.backgroundColor = UIColor.lightGray
-        footerView.backgroundColor = UIColor.lightGray
-        bottomSafeAreaFillView.backgroundColor = UIColor.lightGray
+        if let color = delegate?.slideMenuHeaderColor {
+            topSafeAreaFillView.backgroundColor = color
+            headerView.backgroundColor = color
+        } else {
+            topSafeAreaFillView.backgroundColor = UIColor.lightGray
+            headerView.backgroundColor = UIColor.lightGray
+        }
+        
+        // Menu Footer
+        if let color = delegate?.slideMenuFooterColor {
+            footerView.backgroundColor = color
+            bottomSafeAreaFillView.backgroundColor = color
+        } else {
+            footerView.backgroundColor = UIColor.lightGray
+            bottomSafeAreaFillView.backgroundColor = UIColor.lightGray
+        }
         
         // Close Button
         closeButton.setTitleColor(.black, for: .normal)
@@ -353,9 +385,8 @@ extension SlideMenuViewController : UITableViewDataSource, UITableViewDelegate {
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.register(UINib(nibName: SlideMenuOptionTableViewCell.identifier, bundle: Bundle(for: SlideMenuViewController.self)), forCellReuseIdentifier: SlideMenuOptionTableViewCell.identifier)
-        
-        
+        let cellClass = delegate?.slideMenuOptionCellClass ?? SlideMenuOptionTableViewCell.self
+        tableView.register(UINib(nibName: cellClass.identifier, bundle: Bundle(for: cellClass)), forCellReuseIdentifier: cellClass.identifier)
     }
     
     public func numberOfSections(in tableView: UITableView) -> Int {
@@ -369,7 +400,10 @@ extension SlideMenuViewController : UITableViewDataSource, UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: SlideMenuOptionTableViewCell.identifier) as! SlideMenuOptionTableViewCell
+        
+        let cellClass = delegate?.slideMenuOptionCellClass ?? SlideMenuOptionTableViewCell.self
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellClass.identifier) as! SlideMenuOptionTableViewCell
         
         cell.iconImageView.image = menuItems[indexPath.row].icon
         cell.titleLabel.text = menuItems[indexPath.row].title
@@ -380,6 +414,16 @@ extension SlideMenuViewController : UITableViewDataSource, UITableViewDelegate {
             cell.badgeLabel.isHidden = false
         } else {
             cell.badgeLabel.isHidden = true
+        }
+        
+        if let font = delegate?.slideMenuOptionTextFont {
+            cell.titleLabel.font = font
+        }
+        if let color = delegate?.slideMenuOptionTextColor {
+            cell.titleLabel.textColor = color
+        }
+        if let color = delegate?.slideMenuOptionBackgroundColor {
+            cell.backgroundColor = color
         }
         
         return cell

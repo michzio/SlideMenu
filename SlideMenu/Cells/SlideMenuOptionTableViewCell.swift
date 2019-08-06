@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SlideMenuOptionTableViewCell: UITableViewCell {
+open class SlideMenuOptionTableViewCell: UITableViewCell {
 
     // MARK: - Outlets
     @IBOutlet weak var titleLabel: UILabel!
@@ -17,13 +17,13 @@ class SlideMenuOptionTableViewCell: UITableViewCell {
     @IBOutlet weak var iconImageView: UIImageView!
     
     // MARK: - Life Cycle Hooks
-    override func awakeFromNib() {
+    override open func awakeFromNib() {
         super.awakeFromNib()
         
         configStyle()
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
+    override open func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
