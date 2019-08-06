@@ -13,7 +13,7 @@
         <!--Slide Menu View Controller-->
         <scene sceneID="z5Q-rZ-uCS">
             <objects>
-                <viewController storyboardIdentifier="SlideMenuViewController" id="chp-VF-RrD" customClass="SlideMenuViewController" customModule="PL8Client" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SlideMenuViewController" id="chp-VF-RrD" customClass="SlideMenuViewController" customModule="SlideMenu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EVU-YT-Ecy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -141,6 +141,7 @@
                         <outlet property="signOutButton" destination="m4t-ED-Dql" id="6F5-23-TwN"/>
                         <outlet property="slideMenuTrailingConstraint" destination="nob-t9-AO6" id="xN5-hX-YRS"/>
                         <outlet property="slideMenuView" destination="P59-sp-KeS" id="C9J-RI-j5C"/>
+                        <outlet property="slideMenuWidthConstraint" destination="zFN-zh-AJv" id="334-bc-Zhm"/>
                         <outlet property="tableView" destination="8gM-uK-sUz" id="EiP-1L-68c"/>
                         <outlet property="topSafeAreaFillView" destination="VPc-fS-jkR" id="bVu-2m-bwg"/>
                     </connections>
@@ -152,7 +153,7 @@
         <!--Container View Controller-->
         <scene sceneID="K7R-XP-QfI">
             <objects>
-                <viewController storyboardIdentifier="ContainerViewController" id="Nr0-eV-kQE" customClass="ContainerViewController" customModule="PL8Client" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContainerViewController" id="Nr0-eV-kQE" customClass="ContainerViewController" customModule="SlideMenu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wf8-6C-66L">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

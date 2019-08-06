@@ -98,6 +98,7 @@ open class SlideMenuViewController: UIViewController {
     @IBOutlet weak var slideMenuTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var headerViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var footerViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var slideMenuWidthConstraint: NSLayoutConstraint!
     
     // MARK: - Delegate & Data Source
     public weak var delegate : SlideMenuDelegate?
@@ -239,7 +240,11 @@ open class SlideMenuViewController: UIViewController {
         closeButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         
         // Sign Out Button
-        signOutButton.backgroundColor = UIColor.lightGray
+        if let color = delegate?.slideMenuFooterColor {
+            signOutButton.backgroundColor = color
+        } else {
+            signOutButton.backgroundColor = UIColor.lightGray
+        }
         
     }
     
