@@ -11,10 +11,10 @@ import UIKit
 open class SlideMenuOptionTableViewCell: UITableViewCell {
 
     // MARK: - Outlets
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var badgeLabel: UILabel!
-    @IBOutlet weak var separator: UIView!
-    @IBOutlet weak var iconImageView: UIImageView!
+    @IBOutlet public weak var titleLabel: UILabel!
+    @IBOutlet public weak var badgeLabel: UILabel!
+    @IBOutlet public weak var separator: UIView!
+    @IBOutlet public weak var iconImageView: UIImageView!
     
     // MARK: - Life Cycle Hooks
     override open func awakeFromNib() {
@@ -33,7 +33,7 @@ open class SlideMenuOptionTableViewCell: UITableViewCell {
 // MARK: - Look & Feel
 extension SlideMenuOptionTableViewCell {
     
-    private func configStyle() {
+    open func configStyle() {
         
         // style Title
         titleLabel.text = ""
