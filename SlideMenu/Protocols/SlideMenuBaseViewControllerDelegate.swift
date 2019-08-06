@@ -32,8 +32,6 @@ public protocol SlideMenuBaseViewControllerDelegate : class {
     
     var slideMenuFooterColor : UIColor? { get }
     var slideMenuHeaderColor : UIColor? { get }
-    
-    var shouldInheritNavigationBarStyle : Bool { get }
 }
 
 public extension SlideMenuBaseViewControllerDelegate {
@@ -79,5 +77,5 @@ public extension SlideMenuBaseViewControllerDelegate {
     var slideMenuFooterColor : UIColor? { return nil }
     var slideMenuHeaderColor : UIColor? { return nil }
     
-    var shouldInheritNavigationBarStyle : Bool { return true }
+   
 }
