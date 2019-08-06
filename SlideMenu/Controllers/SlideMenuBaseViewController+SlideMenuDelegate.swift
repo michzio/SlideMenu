@@ -15,50 +15,50 @@ extension SlideMenuBaseViewController : SlideMenuDelegate {
         slideMenuDidSelectItem(vc, menuItemId, completion: nil)
     }
     
-    open func slideMenuDidSelectItem(_ vc: SlideMenuViewController?, _ menuItemId: String, completion: ((Bool) -> Void)? = nil)  {
+    @objc open func slideMenuDidSelectItem(_ vc: SlideMenuViewController?, _ menuItemId: String, completion: ((Bool) -> Void)? = nil)  {
         
         delegate?.slideMenuDidSelectItem(self, slideMenuController: vc, menuItemId: menuItemId, completion: completion)
         
     }
     
-    open func slideMenuDidOpen(_ vc: SlideMenuViewController) {
+    @objc open func slideMenuDidOpen(_ vc: SlideMenuViewController) {
         self.slideMenuViewController = vc
         
         delegate?.slideMenuDidOpen(self, slideMenuController: vc)
     }
     
-    open func slideMenuDidClose() {
+    @objc open func slideMenuDidClose() {
         self.slideMenuViewController = nil
         
         delegate?.slideMenuDidClose(self)
     }
     
-    open func slideMenuHeaderView(_ vc: SlideMenuViewController) -> UIView? {
+    @objc open func slideMenuHeaderView(_ vc: SlideMenuViewController) -> UIView? {
         return delegate?.slideMenuHeaderView(self, slideMenuController: vc)
     }
     
-    open func slideMenuFooterView(_ vc: SlideMenuViewController) -> UIView? {
+    @objc open func slideMenuFooterView(_ vc: SlideMenuViewController) -> UIView? {
         return delegate?.slideMenuFooterView(self, slideMenuController: vc)
     }
     
-    open var slideMenuOptionCellClass: SlideMenuOptionTableViewCell.Type {
+    @objc open var slideMenuOptionCellClass: SlideMenuOptionTableViewCell.Type {
         return delegate?.slideMenuOptionCellClass ?? SlideMenuOptionTableViewCell.self
     }
     
-    open var slideMenuOptionTextColor : UIColor? {
+    @objc open var slideMenuOptionTextColor : UIColor? {
         return delegate?.slideMenuOptionTextColor
     }
-    open var slideMenuOptionBackgroundColor : UIColor? {
+    @objc open var slideMenuOptionBackgroundColor : UIColor? {
         return delegate?.slideMenuOptionBackgroundColor
     }
-    open var slideMenuOptionTextFont : UIFont? {
+    @objc open var slideMenuOptionTextFont : UIFont? {
         return delegate?.slideMenuOptionTextFont
     }
     
-    open var slideMenuFooterColor : UIColor? {
+    @objc open var slideMenuFooterColor : UIColor? {
         return delegate?.slideMenuFooterColor
     }
-    open var slideMenuHeaderColor : UIColor? {
+    @objc open var slideMenuHeaderColor : UIColor? {
         return delegate?.slideMenuHeaderColor
     }
 }
