@@ -167,7 +167,18 @@ extension SlideMenuBaseViewController {
     
     public func selectContainerView(viewController vc: UIViewController, completion: ((Bool) -> Void)? = nil) {
         
-        guard !popToViewControllerIfExists(vc) else { completion?(false); return }
+        let nc = vc.navigationController
+        var inheritStyle : Bool = false
+        if nc != nil {
+            inheritStyle = delegate?.shouldInheritNavigationBarStyle ?? false
+        }
+        
+        guard !popToViewControllerIfExists(vc) else {
+            if inheritStyle {
+                self.navigationController?.navigationBar.backgroundColor = nc!.navigationBar.backgroundColor
+            }
+            completion?(false); return
+        }
         
         // searching ContainerViewController in current hirerarchy
         var next : UIViewController? = self
@@ -181,6 +192,10 @@ extension SlideMenuBaseViewController {
         
         if let cvc = cvc {
             cvc.setContentView(viewController: vc, transition: .backward, completion: completion)
+        
+            if inheritStyle {
+                cvc.navigationController?.navigationBar.backgroundColor = nc!.navigationBar.backgroundColor
+            }
         } else {
             
             let cvc = createContainerController()
@@ -188,6 +203,10 @@ extension SlideMenuBaseViewController {
             self.show(cvc, sender: cvc)
             cvc.loadViewIfNeeded()
             cvc.setContentView(viewController: vc, timeInterval: 0, completion: completion)
+            
+            if inheritStyle {
+                cvc.navigationController?.navigationBar.backgroundColor = nc!.navigationBar.backgroundColor
+            }
         }
         
         
