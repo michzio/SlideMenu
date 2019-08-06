@@ -33,7 +33,7 @@ open class SlideMenuOptionTableViewCell: UITableViewCell {
 // MARK: - Look & Feel
 extension SlideMenuOptionTableViewCell {
     
-    open func configStyle() {
+    @objc open func configStyle() {
         
         // style Title
         titleLabel.text = ""
