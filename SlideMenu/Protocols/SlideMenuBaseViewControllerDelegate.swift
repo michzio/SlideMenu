@@ -32,6 +32,11 @@ public protocol SlideMenuBaseViewControllerDelegate : class {
     
     var slideMenuFooterColor : UIColor? { get }
     var slideMenuHeaderColor : UIColor? { get }
+    
+    var isContainerToSafeArea : Bool { get }
+    
+    var containerView : UIView? { get }
+    var bottomSafeAreaView : UIView? { get }
 }
 
 public extension SlideMenuBaseViewControllerDelegate {
@@ -78,4 +83,8 @@ public extension SlideMenuBaseViewControllerDelegate {
     var slideMenuHeaderColor : UIColor? { return nil }
     
    
+    var isContainerToSafeArea : Bool { return true }
+    
+    var containerView : UIView? { return nil  }
+    var bottomSafeAreaView : UIView? { return nil }
 }

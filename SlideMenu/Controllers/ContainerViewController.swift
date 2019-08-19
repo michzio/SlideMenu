@@ -27,6 +27,7 @@ open class ContainerViewController : SlideMenuBaseViewController {
     
     //@IBOutlet weak var containerView: UIView!
     var containerView: UIView!
+    var bottomSafeAreaView: UIView!
     
     public private(set) var contentViewController: UIViewController?
     
@@ -35,6 +36,7 @@ open class ContainerViewController : SlideMenuBaseViewController {
         
         configBarButtons()
         configContainerView()
+        configBottomSafeAreaView()
     }
     
     override open func viewDidAppear(_ animated: Bool) {
@@ -92,14 +94,29 @@ extension ContainerViewController {
     
     private func configContainerView() {
         
-        self.containerView = UIView()
+        self.containerView = createContainerView()
         view.addSubview(containerView)
         
         containerView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.leadingAnchor.constraint(equalTo: view.safeLeadingAnchor).isActive = true
-        containerView.trailingAnchor.constraint(equalTo: view.safeTrailingAnchor).isActive = true
-        containerView.topAnchor.constraint(equalTo: view.safeTopAnchor).isActive = true
-        containerView.bottomAnchor.constraint(equalTo: view.safeBottomAnchor).isActive = true
+        containerView.leadingAnchor.constraint(equalTo: containerToSafeArea ? view.safeLeadingAnchor : view.leadingAnchor).isActive = true
+        containerView.trailingAnchor.constraint(equalTo: containerToSafeArea ? view.safeTrailingAnchor : view.trailingAnchor).isActive = true
+        containerView.topAnchor.constraint(equalTo: containerToSafeArea ? view.safeTopAnchor : view.topAnchor).isActive = true
+        containerView.bottomAnchor.constraint(equalTo: containerToSafeArea ? view.safeBottomAnchor : view.bottomAnchor).isActive = true
+    }
+    
+    private func configBottomSafeAreaView() {
+        
+        self.bottomSafeAreaView = createBottomSafeAreaView()
+        view.addSubview(bottomSafeAreaView)
+        
+        bottomSafeAreaView.translatesAutoresizingMaskIntoConstraints = false
+        bottomSafeAreaView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        bottomSafeAreaView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        
+        bottomSafeAreaView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+        
+        bottomSafeAreaView.topAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 0).isActive = true
+        
     }
 }
 

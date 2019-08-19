@@ -59,6 +59,18 @@ open class SlideMenuBaseViewController: UIViewController {
         return cvc
     }
     
+    open var containerToSafeArea : Bool {
+        return true
+    }
+    
+    open func createContainerView() -> UIView {
+        return delegate?.containerView ?? UIView()
+    }
+    
+    open func createBottomSafeAreaView() -> UIView {
+        return delegate?.containerView ?? UIView()
+    }
+    
     @objc func didTapSlideMenuBarButton(_ sender: UIBarButtonItem) {
         
         sender.isEnabled = false
@@ -167,10 +179,7 @@ extension SlideMenuBaseViewController {
     
     public func selectContainerView(viewController vc: UIViewController, completion: ((Bool) -> Void)? = nil) {
     
-        
-        guard !popToViewControllerIfExists(vc) else {
-            completion?(false); return
-        }
+        guard !popToViewControllerIfExists(vc) else { completion?(false); return }
         
         // searching ContainerViewController in current hirerarchy
         var next : UIViewController? = self

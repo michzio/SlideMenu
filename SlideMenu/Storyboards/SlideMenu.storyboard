@@ -164,12 +164,20 @@
                                     <segue destination="0Ob-8a-h8A" kind="embed" id="MY8-F6-apk"/>
                                 </connections>
                             </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7pW-Fb-buz">
+                                <rect key="frame" x="0.0" y="862" width="414" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="gRl-L7-AVP" firstAttribute="bottom" secondItem="QU6-bb-Jd7" secondAttribute="bottom" id="4jE-M6-8Ex"/>
                             <constraint firstItem="gRl-L7-AVP" firstAttribute="trailing" secondItem="QU6-bb-Jd7" secondAttribute="trailing" id="8DI-OA-BHT"/>
+                            <constraint firstAttribute="bottom" secondItem="7pW-Fb-buz" secondAttribute="bottom" id="Np4-WV-nRD"/>
                             <constraint firstItem="QU6-bb-Jd7" firstAttribute="top" secondItem="gRl-L7-AVP" secondAttribute="top" id="PjD-Fk-pv2"/>
+                            <constraint firstItem="QU6-bb-Jd7" firstAttribute="bottom" secondItem="7pW-Fb-buz" secondAttribute="top" id="VGd-Vn-IAq"/>
+                            <constraint firstAttribute="trailing" secondItem="7pW-Fb-buz" secondAttribute="trailing" id="hhF-Ei-t8f"/>
+                            <constraint firstItem="7pW-Fb-buz" firstAttribute="leading" secondItem="wf8-6C-66L" secondAttribute="leading" id="lhC-7F-bEI"/>
                             <constraint firstItem="QU6-bb-Jd7" firstAttribute="leading" secondItem="gRl-L7-AVP" secondAttribute="leading" id="tvD-oB-p54"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gRl-L7-AVP"/>
