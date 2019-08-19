@@ -60,7 +60,7 @@ open class SlideMenuBaseViewController: UIViewController {
     }
     
     open var containerToSafeArea : Bool {
-        return true
+        return delegate?.isContainerToSafeArea ?? true
     }
     
     open func createContainerView() -> UIView {
