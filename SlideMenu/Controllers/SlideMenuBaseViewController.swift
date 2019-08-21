@@ -107,7 +107,7 @@ open class SlideMenuBaseViewController: UIViewController {
         return UIBarButtonItem(customView: button)
     }
     
-    @objc func didTapBackButton(_ sender : UIButton) {
+    @objc open func didTapBackButton(_ sender : UIButton) {
         if let nc = self.navigationController  {
             _ = nc.popViewController(animated: true)
         } else {
