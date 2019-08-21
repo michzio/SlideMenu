@@ -220,6 +220,14 @@ extension SlideMenuBaseViewController {
                     self.view.alpha = 1
                 }
                 return true
+            } else if let firstViewController = nc.viewControllers.first(where: {
+                return $0.classForCoder == vc.classForCoder
+            }) {
+                self.view.alpha = 0
+                nc.popToViewController(firstViewController, animated: true) {
+                    self.view.alpha = 1
+                }
+                return true
             }
         }
         
