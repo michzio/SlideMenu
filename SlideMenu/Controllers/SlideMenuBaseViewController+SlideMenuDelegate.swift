@@ -61,4 +61,8 @@ extension SlideMenuBaseViewController : SlideMenuDelegate {
     @objc open var slideMenuHeaderColor : UIColor? {
         return delegate?.slideMenuHeaderColor
     }
+    
+    @objc open var isSlideMenuScrollable : Bool {
+        return delegate?.isSlideMenuScrollable ?? false 
+    }
 }

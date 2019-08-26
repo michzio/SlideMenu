@@ -24,6 +24,8 @@ public protocol SlideMenuDelegate : class {
     
     var slideMenuFooterColor : UIColor? { get }
     var slideMenuHeaderColor : UIColor? { get }
+    
+    var isSlideMenuScrollable : Bool { get }
 }
 
 
@@ -44,6 +46,8 @@ public extension SlideMenuDelegate {
     
     var slideMenuFooterColor : UIColor? { return nil }
     var slideMenuHeaderColor : UIColor? { return nil }
+    
+    var isSlideMenuScrollable : Bool { return false }
 }
 
 public protocol SlideMenuDataSource : class {
@@ -389,6 +393,8 @@ extension SlideMenuViewController : UITableViewDataSource, UITableViewDelegate {
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        tableView.isScrollEnabled = delegate?.isSlideMenuScrollable ?? false
         
         let cellClass = delegate?.slideMenuOptionCellClass ?? SlideMenuOptionTableViewCell.self
         tableView.register(UINib(nibName: cellClass.identifier, bundle: Bundle(for: cellClass)), forCellReuseIdentifier: cellClass.identifier)

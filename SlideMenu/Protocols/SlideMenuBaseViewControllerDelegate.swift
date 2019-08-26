@@ -37,6 +37,8 @@ public protocol SlideMenuBaseViewControllerDelegate : class {
     
     var containerView : UIView? { get }
     var bottomSafeAreaView : UIView? { get }
+    
+    var isSlideMenuScrollable : Bool { get }
 }
 
 public extension SlideMenuBaseViewControllerDelegate {
@@ -87,4 +89,6 @@ public extension SlideMenuBaseViewControllerDelegate {
     
     var containerView : UIView? { return nil  }
     var bottomSafeAreaView : UIView? { return nil }
+    
+    var isSlideMenuScrollable : Bool { return false }
 }
