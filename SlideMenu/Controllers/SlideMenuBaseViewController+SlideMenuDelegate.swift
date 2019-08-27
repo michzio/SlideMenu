@@ -67,6 +67,6 @@ extension SlideMenuBaseViewController : SlideMenuDelegate {
     }
     
     @objc open func slideMenuCellHeight(_ index: Int) -> CGFloat {
-        return delegate?.slideMenuCellHeight(index)
+        return delegate?.slideMenuCellHeight(index) ?? UITableView.automaticDimension
     }
 }
