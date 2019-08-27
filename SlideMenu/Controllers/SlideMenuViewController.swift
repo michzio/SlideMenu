@@ -26,6 +26,8 @@ public protocol SlideMenuDelegate : class {
     var slideMenuHeaderColor : UIColor? { get }
     
     var isSlideMenuScrollable : Bool { get }
+    
+    func slideMenuCellHeight(_ index: Int) -> CGFloat
 }
 
 
@@ -48,6 +50,10 @@ public extension SlideMenuDelegate {
     var slideMenuHeaderColor : UIColor? { return nil }
     
     var isSlideMenuScrollable : Bool { return false }
+    
+    func slideMenuCellHeight(_ index: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
 }
 
 public protocol SlideMenuDataSource : class {
@@ -438,6 +444,11 @@ extension SlideMenuViewController : UITableViewDataSource, UITableViewDelegate {
         }
         
         return cell
+    }
+    
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return delegate?.slideMenuCellHeight(indexPath.row) ?? UITableView.automaticDimension
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

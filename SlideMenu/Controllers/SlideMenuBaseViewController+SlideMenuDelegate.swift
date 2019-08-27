@@ -65,4 +65,8 @@ extension SlideMenuBaseViewController : SlideMenuDelegate {
     @objc open var isSlideMenuScrollable : Bool {
         return delegate?.isSlideMenuScrollable ?? false 
     }
+    
+    @objc open func slideMenuCellHeight(_ index: Int) -> CGFloat {
+        return delegate?.slideMenuCellHeight(index)
+    }
 }

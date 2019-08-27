@@ -39,6 +39,8 @@ public protocol SlideMenuBaseViewControllerDelegate : class {
     var bottomSafeAreaView : UIView? { get }
     
     var isSlideMenuScrollable : Bool { get }
+    
+    func slideMenuCellHeight(_ index: Int) -> CGFloat
 }
 
 public extension SlideMenuBaseViewControllerDelegate {
@@ -91,4 +93,8 @@ public extension SlideMenuBaseViewControllerDelegate {
     var bottomSafeAreaView : UIView? { return nil }
     
     var isSlideMenuScrollable : Bool { return false }
+    
+    func slideMenuCellHeight(_ index: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
 }
