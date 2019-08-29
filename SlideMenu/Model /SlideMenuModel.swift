@@ -50,4 +50,8 @@ open class SlideMenuModel : SlideMenuDataSource {
         return nil
     }
     
+    open var isLoggedIn: Bool {
+        return false 
+    }
+    
 }
