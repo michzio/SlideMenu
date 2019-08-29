@@ -61,6 +61,8 @@ public protocol SlideMenuDataSource : class {
     var menuItems : [SlideMenuItem] { get }
     var signOutButtonTitle: NSAttributedString? { get }
     var loginButtonTitle: NSAttributedString? { get }
+    
+    var isLoggedIn : Bool { get }
 }
 
 
@@ -77,7 +79,6 @@ public extension SlideMenuDataSource {
     var loginButtonTitle: NSAttributedString? {
         return nil
     }
-    
 }
 
 open class SlideMenuViewController: UIViewController {
@@ -184,7 +185,7 @@ open class SlideMenuViewController: UIViewController {
     }
     
     open var isLoggedIn : Bool {
-        return false
+        return dataSource.isLoggedIn
     }
     
     
