@@ -51,7 +51,7 @@ open class SlideMenuModel : SlideMenuDataSource {
     }
     
     open var isLoggedIn: Bool {
-        return false 
+        return false
     }
     
 }
