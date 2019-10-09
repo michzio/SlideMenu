@@ -73,7 +73,8 @@ extension ContainerViewController {
         ViewEmbedder(container: containerView, in: self)
             .setTransitionDirection(direction: direction)
             .setTimeInterval(timeInterval)
-            .embed(child: viewController, replacing: oldViewController) {
+            .embed(child: viewController, replacing: oldViewController) { [weak self] in
+                guard let self = self else { return }
                 
                 self.contentViewController = viewController
                 if let containerChildVC = viewController as? ContainerViewControllerChildProtocol {
