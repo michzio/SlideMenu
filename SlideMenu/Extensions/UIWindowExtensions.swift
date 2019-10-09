@@ -31,7 +31,10 @@ extension UIWindow {
         }
         
         if #available(iOS 13, *) {
-            /// Do nothing here
+           if let previousViewController = previousViewController {
+                // Allow the view controller to be deallocated
+                previousViewController.dismiss(animated: false)
+           }
         } else {
             /// The presenting view controllers view doesn't get removed from the window as its currently transistioning and presenting a view controller
             if let transitionViewClass = NSClassFromString("UITransitionView") {

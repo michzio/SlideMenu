@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "SlideMenu"
-  s.version      = "0.5.6"
+  s.version      = "0.5.7"
   s.summary      = "SlideMenu for iOS."
 
   # This description is used to generate tags and improve search results.
